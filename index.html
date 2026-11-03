@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>DREAM的生存工具組</title>
 <meta name="description" content="DREAM的生存工具組：LED 電視牆配線計算、一鍵去背組、音樂下載器。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E♊%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--ink:#16181d;--sub:#5b6270;--line:#e2e5ea;--accent:#2f5bd3;--accent-ink:#fff;--warn-bg:#fff7e0;--warn-ink:#6b4e00}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1115;--card:#171a21;--ink:#eceef2;--sub:#9aa3b2;--line:#272c36;--accent:#7b9cff;--accent-ink:#0f1115;--warn-bg:#2a2410;--warn-ink:#f1d98a}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,"Noto Sans TC","Microsoft JhengHei",sans-serif}
 .wrap{max-width:880px;margin:0 auto;padding:40px 16px 56px}
-h1{font-size:28px;margin:0 0 6px}
+h1{font-size:28px;margin:0}.brand{display:flex;align-items:center;gap:14px;margin:0 0 8px}.logo{width:64px;height:64px;border-radius:14px;flex:none;box-shadow:0 2px 10px rgba(0,0,0,.25)}@media (max-width:420px){.logo{width:52px;height:52px}h1{font-size:24px}}
 .lead{color:var(--sub);margin:0 0 28px}
 .grid{display:grid;gap:16px;grid-template-columns:1fr}
 @media (min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
@@ -36,7 +37,7 @@ a{color:var(--accent)}
 </head>
 <body>
 <main class="wrap">
-  <h1>DREAM的生存工具組</h1>
+  <div class="brand"><img class="logo" src="logo.png" alt="" width="64" height="64"><h1>DREAM的生存工具組</h1></div>
   <p class="lead">個人小工具。網頁版直接開，桌面版下載後在 Windows 上執行。</p>
 
   <div class="grid">
