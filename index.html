@@ -22,6 +22,7 @@ h1{font-size:28px;margin:0 0 6px}
 .card p{margin:0;color:var(--sub);font-size:15px;flex:1}
 .btn{display:inline-block;text-align:center;text-decoration:none;font-weight:600;padding:10px 14px;border-radius:10px;background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.btn.disabled{opacity:.55;cursor:not-allowed}
 .row{display:flex;gap:8px;flex-wrap:wrap}
 .row .btn{flex:1;min-width:120px}
 .size{font-size:13px;color:var(--sub)}
@@ -49,11 +50,12 @@ a{color:var(--accent)}
 
     <section class="card">
       <span class="tag">Windows 桌面版</span>
-      <h2>圖像一鍵去背</h2>
-      <p>圖片去背，可輸出透明 PNG、綠背、白底、黑底或自選色。本機運算，圖片不會上傳。第一次用某模型會自動下載模型檔，需連網。</p>
-      <a class="btn" href="https://github.com/ToDreamToDesign/one-click-bg-remover/releases/latest/download/OneClickBG-win64.zip">下載 zip</a>
+      <h2>一鍵去背組</h2>
+      <p>去背工具組：圖像可輸出透明 PNG、綠背、白底、黑底或自選色；影像用於影片去背。本機運算，檔案不會上傳。第一次用某模型會自動下載模型檔，需連網。</p>
+      <a class="btn" href="https://github.com/ToDreamToDesign/one-click-bg-remover/releases/latest/download/OneClickBG-win64.zip">下載 圖像去背工具</a>
       <span class="size">約 136 MB，解壓縮後執行「一鍵去背.exe」</span>
-      <a href="https://github.com/ToDreamToDesign/one-click-bg-remover" rel="noopener">說明與原始碼</a>
+      <span class="btn ghost disabled" role="link" aria-disabled="true">影像去背工具（準備中）</span>
+      <a href="https://github.com/ToDreamToDesign/one-click-bg-remover" rel="noopener">圖像去背工具：說明與原始碼</a>
     </section>
 
     <section class="card">
