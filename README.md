@@ -1,4 +1,4 @@
-# 雙子座工具集（網站）
+# DREAM的生存工具組（網站）
 
 靜態網站：入口頁 + DREAM LED 電視牆（`/led/`）。桌面版工具的下載連結指向 GitHub Releases。
 
