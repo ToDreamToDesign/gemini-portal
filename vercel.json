@@ -1,9 +1,10 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
+      "src": "/(.*)",
       "has": [{ "type": "host", "value": "dream-ledwall-mapping.vercel.app" }],
-      "destination": "/led/$1"
-    }
+      "dest": "/led/$1"
+    },
+    { "handle": "filesystem" }
   ]
 }
