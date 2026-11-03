@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>雙子座工具集</title>
+<meta name="description" content="雙子座個人工具集：LED 電視牆配線計算、一鍵去背、YT 音樂下載器。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E♊%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#16181d;--sub:#5b6270;--line:#e2e5ea;--accent:#2f5bd3;--accent-ink:#fff;--warn-bg:#fff7e0;--warn-ink:#6b4e00}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1115;--card:#171a21;--ink:#eceef2;--sub:#9aa3b2;--line:#272c36;--accent:#7b9cff;--accent-ink:#0f1115;--warn-bg:#2a2410;--warn-ink:#f1d98a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,"Noto Sans TC","Microsoft JhengHei",sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:40px 16px 56px}
+h1{font-size:28px;margin:0 0 6px}
+.lead{color:var(--sub);margin:0 0 28px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.tag{font-size:12px;color:var(--sub);letter-spacing:.04em}
+.card h2{font-size:19px;margin:0}
+.card p{margin:0;color:var(--sub);font-size:15px;flex:1}
+.btn{display:inline-block;text-align:center;text-decoration:none;font-weight:600;padding:10px 14px;border-radius:10px;background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row .btn{flex:1;min-width:120px}
+.size{font-size:13px;color:var(--sub)}
+.note{margin-top:24px;padding:14px 16px;border-radius:12px;background:var(--warn-bg);color:var(--warn-ink);font-size:14px}
+.note b{display:block;margin-bottom:2px}
+footer{margin-top:28px;color:var(--sub);font-size:13px}
+a{color:var(--accent)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>雙子座工具集 ♊</h1>
+  <p class="lead">個人小工具。網頁版直接開，桌面版下載後在 Windows 上執行。</p>
+
+  <div class="grid">
+    <section class="card">
+      <span class="tag">網頁版</span>
+      <h2>DREAM LED 電視牆</h2>
+      <p>輸入屏幕寬高，算出片數、箱數、杯架，並規劃主訊、備訊、電源三張配線圖與線材備料清單。可匯出 PNG。</p>
+      <div class="row">
+        <a class="btn" href="led/">開啟工具</a>
+        <a class="btn ghost" href="https://dream-led-wall.fichael960097.chatgpt.site" rel="noopener">原站</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="tag">Windows 桌面版</span>
+      <h2>一鍵去背</h2>
+      <p>圖片去背，可輸出透明 PNG、綠背、白底、黑底或自選色。本機運算，圖片不會上傳。第一次用某模型會自動下載模型檔，需連網。</p>
+      <a class="btn" href="https://github.com/ToDreamToDesign/one-click-bg-remover/releases/latest/download/OneClickBG-win64.zip">下載 zip</a>
+      <span class="size">約 136 MB，解壓縮後執行「一鍵去背.exe」</span>
+      <a href="https://github.com/ToDreamToDesign/one-click-bg-remover" rel="noopener">說明與原始碼</a>
+    </section>
+
+    <section class="card">
+      <span class="tag">Windows 桌面版</span>
+      <h2>YT 音樂下載器</h2>
+      <p>YouTube 轉 MP3，支援批次清單與整批音量校正。啟動時自動檢查更新。請只下載你擁有版權或已獲授權的內容。</p>
+      <a class="btn" href="https://github.com/ToDreamToDesign/yt-music-downloader/releases/latest/download/YT-Music-Downloader.exe">下載 exe</a>
+      <span class="size">約 196 MB，單檔免安裝</span>
+      <a href="https://github.com/ToDreamToDesign/yt-music-downloader" rel="noopener">說明與原始碼</a>
+    </section>
+  </div>
+
+  <div class="note" role="note">
+    <b>Windows 的安全提示</b>
+    兩個桌面程式沒有數位簽章，第一次執行時 Windows SmartScreen 可能跳出警告。選「其他資訊」→「仍要執行」即可。
+  </div>
+
+  <footer>© 雙子座工具集 · 桌面版檔案由 GitHub Releases 提供</footer>
+</main>
+</body>
+</html>
