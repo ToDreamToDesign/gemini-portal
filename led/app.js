@@ -5,7 +5,8 @@ const meta={primary:{name:'主訊號',prefix:'M'},backup:{name:'備訊號',prefi
 const colors=['#007c82','#b1482c','#7152b7','#1967a4','#977216','#ab3c79','#4c742e','#4858a6'];
 const colorsDark=['#5fc7bd','#e08a6d','#a592e6','#6aa5e8','#d4b45f','#d97aa5','#8bc47f','#8d9be0'];
 const darkMQ=window.matchMedia('(prefers-color-scheme: dark)');
-const darkUI=()=>!document.body.classList.contains('screenshot')&&darkMQ.matches;
+const curTheme=()=>document.documentElement.dataset.theme||(darkMQ.matches?'dark':'light');
+const darkUI=()=>!document.body.classList.contains('screenshot')&&curTheme()==='dark';
 const color=n=>(darkUI()?colorsDark:colors)[(Number(n)-1)%colors.length],num=id=>Number($(id).value);
 const PRESETS=[{id:'p26',w:50,h:50,p:2.6,x:192,y:192,tag:'（公司預設）'},{id:'p2976',w:50,h:50,p:2.976,x:168,y:168},{id:'p391',w:50,h:50,p:3.91,x:128,y:128},{id:'p481',w:50,h:50,p:4.81,x:104,y:104},{id:'h391',w:50,h:100,p:3.91,x:128,y:256}];
 const fmt=n=>Number(n.toFixed(2));
@@ -112,5 +113,7 @@ async function exportImages(types){if(!recalc()||!plans){$('imageStatus').textCo
  const m=model,sources=types.map(type=>({type,source:LEDExport.renderPlan(m,meta[type],plans[type],routes(type),diagram(type),{limit:limit(type),slackCm:num('slack'),view,processor:deviceText('procSel','procCustom','procBrand'),consoleModel:deviceText('consoleSel','consoleCustom','consoleBrand'),mode:type==='primary'?'手動／自動配線':type==='backup'?{reverse:'同組反向',same:'同組同向',independent:'獨立配置'}[modes.backup]:modes.power==='same'?'同步主訊號':'獨立配置',warnings:warnings(type)})}));
  $('imageStatus').textContent='產生圖片中…';const newURLs=[];try{const cards=[];for(const item of sources){const blob=await png(item.source),url=URL.createObjectURL(blob);newURLs.push(url);const name=`LED_${m.w}x${m.h}_${meta[item.type].name}.png`;cards.push(`<section class="export-card"><h2>${meta[item.type].name}配線圖</h2><img src="${url}" alt="${meta[item.type].name}配線與備料"><a href="${url}" download="${name}">下載${meta[item.type].name} PNG</a></section>`);}imageURLs.forEach(url=>URL.revokeObjectURL(url));imageURLs=newURLs;$('exportGallery').innerHTML=cards.join('');$('imageDialog').showModal();$('imageStatus').textContent=`已產生 ${cards.length} 張圖。`;}catch(e){newURLs.forEach(url=>URL.revokeObjectURL(url));$('imageStatus').textContent='圖片產生失敗，請切換各圖使用截圖模式。';}}
 $('imageAll').onclick=()=>exportImages(TYPES);$('shotImage').onclick=()=>exportImages(TYPES);$('imageActive').onclick=()=>exportImages([active]);$('closeImage').onclick=()=>$('imageDialog').close();recalc();
-darkMQ.addEventListener('change',()=>{if(model)render();});
+function paintTheme(){const d=curTheme()==='dark';$('themeBtn').textContent=d?'☀ 淺色':'🌙 深色';$('themeBtn').setAttribute('aria-label',d?'切換為淺色模式':'切換為深色模式');}
+$('themeBtn').addEventListener('click',()=>{const n=curTheme()==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('dream-theme',n);}catch(e){}paintTheme();if(model)render();});
+darkMQ.addEventListener('change',()=>{paintTheme();if(model)render();});paintTheme();
 })();
